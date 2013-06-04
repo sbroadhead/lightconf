@@ -26,8 +26,6 @@
                 permissions = [ "UPDATE", "CREATE" ]
                 join_date = [ 2, 4, 2012 ]
             }
-
-
         ]
         global = { maintainer = "user" }
 
