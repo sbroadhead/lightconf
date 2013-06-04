@@ -41,7 +41,7 @@ config_group.set<double>("constants.transcendental.pi", 3.14159);
 
 // Typed vectors and tuples can also be stored and retrieved, as long as the inner types can be stored
 config_group.set<std::vector<string>>("names", { "Fred", "George", "Stephen" });
-std::vector<string> = config_group.get<std::vector<string>>("names");
+std::vector<string> names = config_group.get<std::vector<string>>("names");
 config_group.set<std::tuple<int, bool>>("my_tuple", std::make_tuple<int, bool>(10, false));
 std::tuple<int, bool> my_tuple = config_group.get<std::tuple<int, bool>>("my_tuple");
 
