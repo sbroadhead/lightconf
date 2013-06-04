@@ -24,7 +24,7 @@ A full working example is available in `sample/lightconf_sample.cpp`. This is a 
 
 The primary object containing configuration information is `lightconf::group`. It acts like a map from string keys to `lightconf::value` values, and is analogous to JSON's _objects_. A value is effectively a union type which can contain the standard JSON types: doubles, strings, bools, arrays (implemented as `std::vector<lightconf::value>`) and other groups.
 
-Values are accessed via paths, which are period separates names corresponding to nested groups. The path `foo.bar.baz` corresponds to the value 123 in the configuration layout `foo = { bar = { baz = 123 } }`.
+Values are accessed via paths, which are period separated names corresponding to nested groups. The path `foo.bar.baz` corresponds to the value 123 in the configuration layout `foo = { bar = { baz = 123 } }`.
 
 ```cpp
 // Deserialize a configuration file stored in a string
