@@ -8,6 +8,7 @@ lightconf is a lightweight header-only configuration file library for C++11. It 
 - The primary lightconf text format `.config` is structurally identical to JSON but supports comments. Comments, blank lines, and ordering will be preserved when updating an existing file.
 - It can also read and write JSON directly.
 - Easily extensible to allow serializing custom types and enums automatically.
+- BSD licensed.
 
 Certain features used in lightconf, such as `decltype` and variadic templates, mean that it is only usable by compilers that support C++11. It has been tested using Clang 3.2 and GCC 4.7.2.
 
