@@ -22,7 +22,7 @@ There are various common ways to implement configuration files:
 ### File Format
 The text-based file format that lightconf is designed to use for primary serialization and deserialization is referred to internally as `.config` (simply to differentiate it from JSON, the file extension is not important). It differs from JSON in the following ways:
 
-- Keys are bare identifiers rather than strings, and can contain the characters `[A-Za-z_\-]` (if a JSON file has keys with other characters, it will throw an exception when trying to deserialize)
+- Keys are bare identifiers rather than strings, and are of the form `[A-Za-z][A-Za-z0-9_\-]*` (if a JSON file has keys which don't match this pattern, an exception will be thrown when trying to deserialize it)
 - Keys are separated from values by an `=` rather than a colon
 - Commas (including trailing commas) in lists and groups are optional
 - Comments are supported (JSON with comments will read as well, but the comments will not be preserved when saving a JSON file)
