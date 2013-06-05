@@ -19,6 +19,14 @@ There are various common ways to implement configuration files:
 - _Boost.PropertyTree_ is a nice library similar to lightconf that supports JSON among other formats. The primary drawback is its dependency on Boost.
 - _INI_ is a very simple flat key/value format. It does not support hierarchical or vector data.
 
+### File Format
+The text-based file format that lightconf is designed to use for primary serialization and deserialization is referred to internally as `.config` (simply to differentiate it from JSON, the file extension is not important). It differs from JSON in the following ways:
+
+- Keys are bare identifiers rather than strings, and can contain the characters `[A-Za-z_\-]` (if a JSON file has keys with other characters, it will throw an exception when trying to deserialize)
+- Keys are separated from values by an `=` rather than a colon
+- Commas (including trailing commas) in lists and groups are optional
+- Comments are supported (JSON with comments will read as well, but the comments will not be preserved when saving a JSON file)
+
 ### Quick Tutorial
 A full working example is available in `sample/lightconf_sample.cpp`. This is a very quick example of how to use lightconf.
 
