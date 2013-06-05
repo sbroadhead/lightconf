@@ -26,6 +26,7 @@ The text-based file format that lightconf is designed to use for primary seriali
 - Keys are separated from values by an `=` rather than a colon
 - Commas (including trailing commas) in lists and groups are optional
 - Comments are supported (JSON with comments will read as well, but the comments will not be preserved when saving a JSON file)
+- JSON supports documents with arrays as root elements, but `.config` files always have a group (an object in JSON) as a root, with no braces
 
 ### Quick Tutorial
 A full working example is available in `sample/lightconf_sample.cpp`. This is a very quick example of how to use lightconf.
