@@ -8,7 +8,7 @@ namespace lightconf {
 
 //
 //
-std::string stringize_number(double num) {
+inline std::string stringize_number(double num) {
     std::stringstream ss;
     ss << num;
     return ss.str();
@@ -16,7 +16,7 @@ std::string stringize_number(double num) {
 
 //
 //
-std::string escape_string(const std::string& str) {
+inline std::string escape_string(const std::string& str) {
     const char *table = "0123456789abcdef";
     char utf8[7] = "\\u0000";
     std::string buf;

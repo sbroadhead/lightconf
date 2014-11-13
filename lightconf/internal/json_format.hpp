@@ -112,7 +112,7 @@ inline value read_value(scanner& sc) {
 
 //
 //
-void write_group(writer& wr, const group& gr) {
+inline void write_group(writer& wr, const group& gr) {
     wr.append("{");
     wr.indent();
     wr.newline();
@@ -138,7 +138,7 @@ void write_group(writer& wr, const group& gr) {
 
 //
 //
-void write_vector(writer& wr, const value_vector_type& vec) {
+inline void write_vector(writer& wr, const value_vector_type& vec) {
     wr.append("[");
     wr.indent();
     wr.newline();
@@ -161,7 +161,7 @@ void write_vector(writer& wr, const value_vector_type& vec) {
 
 //
 //
-void write_value(writer& wr, const value& val) {
+inline void write_value(writer& wr, const value& val) {
     switch (val.type()) {
     case value_type::number_type: {
         wr.append(stringize_number(val.number_value()));

@@ -9,7 +9,7 @@
 namespace lightconf {
 ////////////////////
 
-class token;
+struct token;
 class scanner;
 
 //

@@ -111,7 +111,7 @@ inline value read_value(scanner& sc) {
 
 //
 //
-void write_group(scanner& sc, writer& wr, bool braces, const group& gr) {
+inline void write_group(scanner& sc, writer& wr, bool braces, const group& gr) {
     bool wrap = !braces || group_length(gr) > wr.wrap_length;
 
     if (braces) {
@@ -188,7 +188,7 @@ void write_group(scanner& sc, writer& wr, bool braces, const group& gr) {
 
 //
 //
-void write_vector(scanner& sc, writer& wr, const value_vector_type& vec) {
+inline void write_vector(scanner& sc, writer& wr, const value_vector_type& vec) {
     bool wrap = vector_length(vec) > wr.wrap_length;
 
     wr.append("[ ");
@@ -245,7 +245,7 @@ void write_vector(scanner& sc, writer& wr, const value_vector_type& vec) {
 
 //
 //
-void write_value(scanner& sc, writer& wr, const value& val) {
+inline void write_value(scanner& sc, writer& wr, const value& val) {
     switch (val.type()) {
     case value_type::number_type: {
         read_value(sc);
@@ -292,7 +292,7 @@ void write_value(scanner& sc, writer& wr, const value& val) {
 
 //
 //
-int value_length(const value& val, int wrap_length) {
+inline int value_length(const value& val, int wrap_length) {
     switch (val.type()) {
     case value_type::number_type: {
         return stringize_number(val.number_value()).size();
@@ -317,7 +317,7 @@ int value_length(const value& val, int wrap_length) {
 
 //
 //
-int group_length(const group& gr, int wrap_length) {
+inline int group_length(const group& gr, int wrap_length) {
     int sum = 3; // length of "{ }"
     for (const auto& key : gr) { 
         sum += 4 + key.size() + value_length(gr.get<value>(key)); // ", = "
@@ -327,7 +327,7 @@ int group_length(const group& gr, int wrap_length) {
 
 //
 //
-int vector_length(const value_vector_type& vec, int wrap_length) {
+inline int vector_length(const value_vector_type& vec, int wrap_length) {
     int sum = 3; // length of "[ ]"
     for (const auto& val : vec) {
         sum += 2 + value_length(val); // ", "
